@@ -1,0 +1,115 @@
+/* JK Fixadores — base: tokens, tipografia, cabeçalho, botões, rodapé */
+:root{
+  --navy-900:#070E24; --navy-800:#0B1636; --navy-700:#13245A; --navy-600:#1B3175;
+  --blue-500:#2B4C9B; --blue-300:#9DB0DE;
+  --sun:#F6B400; --sun-600:#F08A00; --sun-100:#FFF3CC;
+  --paper:#F2F0EA; --paper-2:#E6E2D8; --white:#FFFFFF;
+  --ink:#0B1636; --ink-2:#47506B; --ink-3:#7B8299;
+  --line:rgba(11,22,54,.14); --line-inv:rgba(255,255,255,.16);
+  --ok:#1F7A4D; --erro:#B42318;
+  --sans:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif; /* rótulos e códigos na sans da marca (nada de mono) */
+  --gut:clamp(16px,4vw,48px); --max:1320px;
+  --sec:clamp(80px,11vw,152px);
+  --e-out:cubic-bezier(.72,0,.08,1); --e-pop:cubic-bezier(.22,.9,.38,1.16);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0;border-radius:0}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.mono{font-family:var(--mono);font-size:.8rem;font-weight:600;letter-spacing:0;font-variant-numeric:tabular-nums}
+
+/* Títulos no padrão dos posts da JK: leve + extra-negrito na mesma frase */
+.dsp{font-weight:300;letter-spacing:-.035em;line-height:1.02;margin:0}
+.dsp b,.dsp strong{font-weight:800;letter-spacing:-.04em}
+.dsp--xl{font-size:clamp(2.6rem,6.4vw,6rem)}
+.dsp--l{font-size:clamp(2.1rem,4.6vw,4.2rem)}
+.dsp--m{font-size:clamp(1.6rem,3vw,2.6rem)}
+.sun{color:var(--sun)}
+.lede{font-size:clamp(1.02rem,1.35vw,1.2rem);color:var(--ink-2);max-width:46ch;margin:0}
+.on-dark .lede{color:var(--blue-300)}
+.kicker{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--ink-2);margin:0 0 22px}
+.kicker::before{content:"";width:28px;height:2px;background:var(--sun)}
+.on-dark .kicker{color:var(--blue-300)}
+.w-mask{display:inline-block;overflow:hidden;vertical-align:top;padding-top:.14em;margin-top:-.14em;padding-bottom:.06em;margin-bottom:-.06em}
+
+/* Botões retangulares com preenchimento que varre */
+.btn{--bg:var(--sun);--fg:var(--navy-800);--sw:var(--navy-800);--sfg:#fff;position:relative;display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 22px;background:var(--bg);color:var(--fg);font-weight:700;font-size:.98rem;letter-spacing:-.01em;text-decoration:none;border-radius:2px;overflow:hidden;isolation:isolate;transition:color .35s var(--e-out)}
+.btn::before{content:"";position:absolute;inset:0;background:var(--sw);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--e-out);z-index:-1}
+@media (hover:hover){.btn:hover{color:var(--sfg)}.btn:hover::before{transform:scaleX(1);transform-origin:left}.btn:hover svg{transform:translateX(4px)}}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .45s var(--e-out)}
+.btn--navy{--bg:var(--navy-800);--fg:#fff;--sw:var(--sun);--sfg:var(--navy-800)}
+.btn--ghost{--bg:transparent;--fg:currentColor;--sw:currentColor;box-shadow:inset 0 0 0 1.5px currentColor}
+.on-dark .btn--ghost{--fg:#fff;--sw:#fff;--sfg:var(--navy-800)}
+@media (hover:hover){.btn--ghost:hover{color:var(--paper)}}
+.btn--sm{min-height:42px;padding:0 16px;font-size:.9rem}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.ulink{position:relative;text-decoration:none;font-weight:600;padding-bottom:3px;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1.5px no-repeat;transition:background-size .45s var(--e-out)}
+.ulink:hover{background-size:0 1.5px;background-position:100% 100%}
+
+/* Cabeçalho */
+.hd{position:fixed;inset:0 0 auto;z-index:50;color:#fff;transition:transform .5s var(--e-out),background-color .35s}
+.hd.is-solid{background:rgba(7,14,36,.94);backdrop-filter:saturate(1.2)}
+.hd.is-hidden{transform:translateY(-100%)}
+.hd__in{display:flex;align-items:center;gap:28px;height:76px}
+.hd__logo{display:block;width:62px;flex:none;color:#fff}
+.hd__logo .logo-svg{width:100%;height:auto;display:block}
+.logo-svg .lj,.logo-svg .lt{fill:currentColor}
+.hd__nav{display:flex;gap:26px;margin-left:auto;font-size:.93rem}
+.hd__nav a{text-decoration:none;opacity:.86;padding:6px 0;position:relative}
+.hd__nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--sun);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--e-out)}
+.hd__nav a:hover{opacity:1}.hd__nav a:hover::after,.hd__nav a[aria-current=page]::after{transform:scaleX(1);transform-origin:left}
+.hd__cta{margin-left:6px}
+.hd__menu{display:none;margin-left:auto;align-items:center;gap:10px;height:44px;padding:0 4px;font-weight:600;font-size:.92rem}
+.hd__menu i{display:grid;gap:5px;width:22px}.hd__menu i::before,.hd__menu i::after{content:"";height:2px;background:currentColor;transition:transform .35s var(--e-out)}
+.hd.is-open .hd__menu i::before{transform:translateY(3.5px) rotate(45deg)}.hd.is-open .hd__menu i::after{transform:translateY(-3.5px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;z-index:49;background:var(--navy-900);color:#fff;padding:110px var(--gut) 40px;display:flex;flex-direction:column;gap:6px;clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--e-out);visibility:hidden}
+.mnav.is-open{clip-path:inset(0);visibility:visible}
+.mnav a{font-size:2.1rem;font-weight:300;letter-spacing:-.03em;text-decoration:none;padding:8px 0;border-bottom:1px solid var(--line-inv)}
+.mnav a b{font-weight:800}
+.mnav .btn{margin-top:26px;font-size:1rem;justify-content:space-between;padding:0 22px;border:0}
+@media (max-width:900px){
+  .hd__nav,.hd__cta{display:none}
+  .hd__menu{display:inline-flex}
+  .hd__in{height:64px}.hd__logo{width:52px}
+}
+
+/* Rodapé */
+.ft{background:var(--navy-900);color:#C8D1EA;padding:72px 0 34px;font-size:.92rem}
+.ft__top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--line-inv)}
+.ft__logo{width:120px;color:#fff;margin-bottom:18px}
+.ft h4{margin:0 0 14px;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.08em;color:var(--blue-300)}
+.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.ft a{text-decoration:none}.ft a:hover{color:var(--sun)}
+.ft__bot{display:flex;justify-content:space-between;gap:20px;padding-top:26px;font-family:var(--mono);font-size:.72rem;color:#8590AE;flex-wrap:wrap}
+@media (max-width:900px){.ft__top{grid-template-columns:1fr 1fr}.ft__brand{grid-column:1/-1}}
+@media (max-width:520px){.ft__top{grid-template-columns:1fr}}
+
+/* WhatsApp fixo (retangular, sem círculo) */
+.wa-fix{position:fixed;right:var(--gut);bottom:22px;z-index:40;display:flex;align-items:center;gap:10px;height:50px;padding:0 18px 0 14px;background:#1F7A4D;color:#fff;text-decoration:none;font-weight:700;font-size:.92rem;border-radius:2px;box-shadow:0 10px 30px -12px rgba(7,14,36,.55);transform:translateY(140%);transition:transform .6s var(--e-out),background-color .25s}
+.wa-fix.is-in{transform:none}.wa-fix:hover{background:#17623D}
+.wa-fix svg{width:22px;height:22px}
+
+/* Aviso de toast (lista) */
+.toast{position:fixed;left:50%;bottom:22px;z-index:45;display:flex;align-items:center;gap:18px;padding:12px 12px 12px 18px;background:var(--navy-800);color:#fff;border-radius:2px;box-shadow:0 18px 40px -16px rgba(7,14,36,.6);transform:translate(-50%,160%);transition:transform .55s var(--e-out);font-size:.92rem;max-width:calc(100vw - 32px)}
+.toast.is-in{transform:translate(-50%,0)}
+.toast b{color:var(--sun)}
+
+/* Preloader */
+.pre{position:fixed;inset:0;z-index:100;background:var(--navy-800);display:grid;place-items:center;color:#fff}
+.pre__logo{width:min(150px,34vw);overflow:hidden}
+.pre__logo .logo-svg{width:100%;height:auto;display:block}
+.no-js .pre,.pre.is-done{display:none}
+
+/* Reduced-motion: corta só movimento grande (Lenis/parallax no JS); hover e cliques continuam */

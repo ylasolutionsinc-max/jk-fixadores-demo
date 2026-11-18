@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monte seu orçamento · JK Fixadores</title>
+<meta name="description" content="Monte o orçamento de estrutura solar da JK Fixadores: escolha o telhado, desenhe o arranjo e receba a pré-lista de peças. Envio pelo WhatsApp.">
+<meta name="theme-color" content="#0B1636">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/orcamento.css">
+<script>document.documentElement.classList.replace('no-js','js')</script>
+<script src="js/pixel.js"></script>
+</head>
+<body class="pg-orc">
+<header class="hd is-solid" id="hd" data-solid="1">
+  <div class="wrap hd__in">
+    <a class="hd__logo" href="index.html" aria-label="JK Fixadores, início" data-logo></a>
+    <nav class="hd__nav" aria-label="Principal">
+      <a href="index.html#telhados">Soluções</a>
+      <a href="index.html#fabrica">Fábrica</a>
+      <a href="index.html#catalogo">Catálogo</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+    <a class="btn btn--sm hd__cta" href="orcamento.html" aria-current="page">Monte seu orçamento</a>
+    <button class="hd__menu" id="menuBtn" aria-expanded="false" aria-controls="mnav"><span>Menu</span><i></i></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Menu">
+  <a href="index.html#telhados"><b>Soluções</b> por telhado</a>
+  <a href="index.html#fabrica">A <b>fábrica</b></a>
+  <a href="index.html#catalogo"><b>Catálogo</b> 2025</a>
+  <a href="index.html#contato"><b>Contato</b></a>
+</nav>
+
+<main>
+  <section class="oh on-dark">
+    <div class="wrap">
+      <p class="kicker">Orçamento sem compromisso · resposta pelo WhatsApp</p>
+      <h1 class="dsp dsp--l" data-split>Monte seu <b class="sun">orçamento.</b></h1>
+      <p class="lede" data-rise>Descreva o projeto e veja na hora a pré-lista estimada de peças. O vendedor confere tudo no sistema da JK e devolve o orçamento.</p>
+      <div class="modos" role="tablist" aria-label="Como montar" data-rise>
+        <button class="modo" role="tab" id="tabProjeto" aria-selected="true" aria-controls="modoProjeto" data-modo="projeto"><b>Montar pelo projeto</b><span>Telhado, placas e arranjo. A gente estima as peças.</span></button>
+        <button class="modo" role="tab" id="tabLista" aria-selected="false" aria-controls="modoLista" data-modo="lista"><b>Já tenho minha lista</b><span>Escolha as peças do catálogo com as quantidades.</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="ob">
+    <div class="wrap ob__grid">
+      <form class="ob__form" id="form" novalidate>
+        <!-- MODO PROJETO -->
+        <div id="modoProjeto" role="tabpanel" aria-labelledby="tabProjeto">
+          <fieldset class="st" id="stTelhado">
+            <legend><span class="mono">Telhado</span>Qual é o tipo de telhado?</legend>
+            <div class="tels" id="tels"></div>
+            <p class="erro" id="erroTelhado" hidden>Escolha o tipo de telhado.</p>
+          </fieldset>
+
+          <fieldset class="st">
+            <legend><span class="mono">Placa</span>Qual placa vai ser instalada?</legend>
+            <div class="row2">
+              <label class="fld"><span>Modelo da placa <small>opcional</small></span><input id="pModelo" type="text" placeholder="Ex.: 585 W bifacial" autocomplete="off"></label>
+              <label class="fld"><span>Potência (W) <small>opcional</small></span><input id="pPot" type="number" inputmode="numeric" min="100" max="1000" step="5" placeholder="585"></label>
+            </div>
+            <div class="row2">
+              <label class="fld"><span>Comprimento (mm)</span><input id="pComp" type="number" inputmode="numeric" min="1000" max="3000" value="2278"></label>
+              <label class="fld"><span>Largura (mm)</span><input id="pLarg" type="number" inputmode="numeric" min="600" max="1500" value="1134"></label>
+            </div>
+            <div class="row2">
+              <div class="fld"><span id="lEsp">Espessura da moldura</span>
+                <div class="seg" role="radiogroup" aria-labelledby="lEsp">
+                  <label><input type="radio" name="esp" value="30" checked><span>30 mm</span></label>
+                  <label><input type="radio" name="esp" value="35"><span>35 mm</span></label>
+                  <label><input type="radio" name="esp" value="40"><span>40 mm</span></label>
+                </div>
+              </div>
+              <div class="fld"><span id="lOri">Orientação</span>
+                <div class="seg" role="radiogroup" aria-labelledby="lOri">
+                  <label><input type="radio" name="ori" value="retrato" checked><span><i class="ori ori--r"></i>Retrato</span></label>
+                  <label><input type="radio" name="ori" value="paisagem"><span><i class="ori ori--p"></i>Paisagem</span></label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="st">
+            <legend><span class="mono">Arranjo</span>Quantas linhas e quantas placas em cada uma?</legend>
+            <div class="arr">
+              <ol class="arr__rows" id="rows"></ol>
+              <button type="button" class="arr__add" id="addRow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Adicionar linha</button>
+            </div>
+            <figure class="draw" id="draw" aria-label="Desenho do arranjo">
+              <svg id="drawSvg" role="img" aria-labelledby="drawCap"></svg>
+              <figcaption class="mono" id="drawCap"></figcaption>
+              <div class="draw__leg mono"><span><i class="lg lg--t"></i><span id="legT">Trilho</span></span><span><i class="lg lg--f"></i>Kit final</span><span><i class="lg lg--i"></i>Kit intermediário</span></div>
+            </figure>
+            <p class="erro" id="erroArranjo" hidden>Coloque pelo menos uma placa no arranjo.</p>
+          </fieldset>
+
+          <fieldset class="st" id="stEstrutura">
+            <legend><span class="mono">Estrutura</span>Perfil e fixação</legend>
+            <div class="fld" id="fPerfil"><span id="lPerfil">Perfil (trilho)</span>
+              <div class="seg seg--4" role="radiogroup" aria-labelledby="lPerfil">
+                <label><input type="radio" name="perfil" value="H"><span>H</span></label>
+                <label><input type="radio" name="perfil" value="H2" checked><span>H2</span></label>
+                <label><input type="radio" name="perfil" value="H2R"><span>H2 reforçado</span></label>
+                <label><input type="radio" name="perfil" value="LIGHT"><span>Light</span></label>
+              </div>
+            </div>
+            <div class="row2">
+              <div class="fld" id="fBarra"><span id="lBarra">Barra do trilho</span>
+                <div class="seg" role="radiogroup" aria-labelledby="lBarra">
+                  <label><input type="radio" name="barra" value="4800" checked><span>4800 mm</span></label>
+                  <label><input type="radio" name="barra" value="6000"><span>6000 mm</span></label>
+                </div>
+              </div>
+              <div class="fld"><span id="lInter">Intermediário</span>
+                <div class="seg" role="radiogroup" aria-labelledby="lInter">
+                  <label><input type="radio" name="inter" value="U" checked><span>U</span></label>
+                  <label><input type="radio" name="inter" value="RETO"><span>Reto</span></label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- MODO LISTA -->
+        <div id="modoLista" role="tabpanel" aria-labelledby="tabLista" hidden>
+          <fieldset class="st">
+            <legend><span class="mono">Catálogo</span>Escolha as peças</legend>
+            <label class="busca"><span class="sr">Buscar peça</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+              <input id="lq" type="search" placeholder="Nome ou código: kit final, JK315, H2…" autocomplete="off">
+            </label>
+            <div class="lgrp" id="lgrp"></div>
+            <ul class="lcat" id="lcat"></ul>
+            <p class="erro" id="erroLista" hidden>Adicione pelo menos uma peça à lista.</p>
+          </fieldset>
+        </div>
+
+        <!-- DADOS (os dois modos) -->
+        <fieldset class="st">
+          <legend><span class="mono">Seus dados</span>Para quem vai o orçamento?</legend>
+          <div class="row2">
+            <label class="fld"><span>Nome *</span><input id="dNome" type="text" autocomplete="name" required></label>
+            <label class="fld"><span>Empresa <small>opcional</small></span><input id="dEmp" type="text" autocomplete="organization"></label>
+          </div>
+          <div class="row3">
+            <label class="fld"><span>Cidade *</span><input id="dCid" type="text" autocomplete="address-level2" required></label>
+            <label class="fld"><span>UF *</span><select id="dUF" required><option value="">--</option></select></label>
+            <label class="fld"><span>Você é</span><select id="dPerfil"><option>Instalador / integrador</option><option>Distribuidora</option><option>Cliente final</option></select></label>
+          </div>
+          <label class="fld"><span>Observações <small>opcional</small></span><textarea id="dObs" rows="3" placeholder="Prazo, inclinação do telhado, se precisa de entrega, etc."></textarea></label>
+          <p class="erro" id="erroDados" hidden>Preencha nome, cidade e UF.</p>
+        </fieldset>
+      </form>
+
+      <aside class="res" id="resumo" aria-labelledby="resT">
+        <div class="res__in">
+          <p class="mono res__k" id="resK">Pré-lista estimada</p>
+          <h2 class="res__t" id="resT">Seu pedido</h2>
+          <p class="res__stats mono" id="resStats"></p>
+          <div class="res__vazio" id="resVazio">Escolha o telhado e monte o arranjo para ver as peças.</div>
+          <table class="res__tb" id="resTb">
+            <thead><tr><th scope="col">Código</th><th scope="col">Peça</th><th scope="col" class="q">Qtd.</th></tr></thead>
+            <tbody id="resBody"></tbody>
+          </table>
+          <div class="res__extra" id="resExtra" hidden>
+            <p class="mono">Itens avulsos da sua lista</p>
+            <ul id="resExtraList"></ul>
+          </div>
+          <p class="res__aviso" id="resAviso">Estimativa. O vendedor confere a lista no sistema da JK antes de fechar.</p>
+          <div class="res__acts">
+            <button class="btn res__send" type="button" id="send"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>Enviar pelo WhatsApp</button>
+            <div class="res__sec">
+              <button class="ulink" type="button" id="copy">Copiar texto</button>
+              <button class="ulink" type="button" id="print">Imprimir / PDF</button>
+            </div>
+          </div>
+          <p class="res__ok" id="resOk" role="status"></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<div class="mbar" id="mbar">
+  <div><b id="mbarN">0</b> <span id="mbarT">peças na pré-lista</span></div>
+  <a class="btn btn--sm" href="#resumo">Ver e enviar</a>
+</div>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft__bot"><span>© 2026 JK Fixadores · Rod. BR-277, km 585 · Cascavel, PR · (45) 3016-0377</span><span>A pré-lista é uma estimativa. O orçamento oficial vem do vendedor.</span></div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+<script src="js/logo.js"></script>
+<script src="js/catalogo.js"></script>
+<script src="js/regras.js"></script>
+<script src="js/lista.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/orcamento.js"></script>
+</body>
+</html>
